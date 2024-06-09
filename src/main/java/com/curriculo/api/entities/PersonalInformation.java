@@ -1,5 +1,6 @@
 package com.curriculo.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,15 +28,15 @@ public class PersonalInformation {
     private String address;
 
     @OneToMany(mappedBy = "personalInformation", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnore
     private List<Education> education;
 
     @OneToMany(mappedBy = "personalInformation", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnore
     private List<Experience> experience;
 
     @OneToMany(mappedBy = "personalInformation", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnore
     private List<Skill> skills;
 
     public Long getId() {
